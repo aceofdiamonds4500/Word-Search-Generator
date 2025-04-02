@@ -1,0 +1,3 @@
+/home/nick/plusplus/WordSearch/src/build/CMakeFiles/WordSearch.dir
+/home/nick/plusplus/WordSearch/src/build/CMakeFiles/edit_cache.dir
+/home/nick/plusplus/WordSearch/src/build/CMakeFiles/rebuild_cache.dir
