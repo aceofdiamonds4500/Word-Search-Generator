@@ -21,5 +21,6 @@
 - Finish the Word object to track its position
 - Finish the WordList object to contain every word
 - Create an Easy, Medium, and Hard mode
-- Create text files with a list of words to search for 
+- Create text files with a list of words to search for
+ 
 ~~- Compile with a Make file~~
