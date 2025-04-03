@@ -6,7 +6,7 @@ using namespace std;
 
 WordSearch::WordSearch(size_t ysize, size_t xsize) : xsize(xsize), ysize(ysize){
    wordsearch.resize(ysize, vector<char>(xsize));
-   int randomLetter;
+   char randomLetter;
    srand(time(0));
    
    for(int i = 0; i < ysize; i++){
@@ -44,6 +44,7 @@ bool WordSearch::addWord(vector<char> word){
    return true;
 }
 
+// TODO: pls fix to return a string
 string WordSearch::toString() const{
    string output = "";
    for(int i = 0; i < ysize; i++){
@@ -55,9 +56,10 @@ string WordSearch::toString() const{
    output += "\0";
 //   for(const auto &xsize : wordsearch){
 //      for(char ch : xsize){
-//	 output += ch + " ";
+//	 cout << ch;
+//         cout << " ";
 //      }
-//      output += "\n";
+//      cout << endl;
 //   }
 
    return output;
