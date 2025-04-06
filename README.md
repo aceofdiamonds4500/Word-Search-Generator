@@ -1,5 +1,8 @@
 # Custom Word Search Generator
 
+## Building and Compiling
+Currently, until I can get the right Make config I want, you need to navigate to WordSearch/src/build and run ``make`` to compile, which you can then run ``./WordSearch`` to execute.
+
 ## Author
 > Nicholas Cieplensky
 
