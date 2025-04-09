@@ -18,6 +18,8 @@ public:
 
    void setWord(string inputWord);
    vector<char> getWord();
+   char getLetter(int idx) const;
+   size_t getLength() const;
    string toString() const;
 };
 

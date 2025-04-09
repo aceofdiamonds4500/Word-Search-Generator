@@ -13,6 +13,7 @@ private:
 public:
    WordList(vector<Word> wordList);
    void addWord(Word word);
+   bool removeWord(Word word);
    string toString() const;
 };
 #endif

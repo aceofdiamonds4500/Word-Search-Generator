@@ -47,20 +47,20 @@ bool WordSearch::addWord(vector<char> word){
 // TODO: pls fix to return a string
 string WordSearch::toString() const{
    string output = "";
-   for(int i = 0; i < ysize; i++){
-      for(int j = 0; j < xsize; j++){
-         output += wordsearch[i][j] + ' ';
-      }
-      output += "\n";
-   }
-   output += "\0";
-//   for(const auto &xsize : wordsearch){
-//      for(char ch : xsize){
-//	 cout << ch;
-//         cout << " ";
+//   for(int i = 0; i < ysize; i++){
+//      for(int j = 0; j < xsize; j++){
+//         output += wordsearch[i][j] + ' ';
 //      }
-//      cout << endl;
+//      output += "\n";
 //   }
+//   output += "\0";
+   for(const auto &xsize : wordsearch){
+      for(char ch : xsize){
+	 cout << ch;
+         cout << " ";
+      }
+      cout << endl;
+   }
 
    return output;
 }

@@ -26,6 +26,14 @@ vector<char> Word::getWord(){
    return word;
 }
 
+char Word::getLetter(int idx) const{
+   return word[idx];
+}
+
+size_t Word::getLength() const{
+   return length;
+}
+
 string Word::toString() const{
    string output = "";
    for(char ch : word){
