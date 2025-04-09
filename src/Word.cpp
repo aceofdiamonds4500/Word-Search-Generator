@@ -1,6 +1,6 @@
 #include <iostream>
 #include <tuple>
-#include <vector>
+#include <vector> 
 #include "header/Word.h"
 using namespace std;
 
