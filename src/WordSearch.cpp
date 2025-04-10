@@ -36,9 +36,38 @@ char WordSearch::getChar(size_t col, size_t row) const{
 }
 
 bool WordSearch::addWord(vector<char> word){
-   for(int i = 0; i < word.size(); i++){
-      if(!setChar(i,i,word[i])){
-         return false;
+   bool wordWritten = false;
+   int randDir = 0;
+   srand(time(0));
+   while(wordWritten == false){
+      randDir = (rand() % 8) + 1;
+      switch(randDir){
+         case 1:
+            if(putNorth(word) == true){wordWritten = true;}
+            break;
+         case 2:
+            if(putSouth(word) == true){wordWritten = true;}
+            break;
+         case 3:
+            if(putEast(word) == true){wordWritten = true;}
+            break;
+         case 4:
+            if(putWest(word) == true){wordWritten = true;}
+            break;
+         case 5:
+            if(putNE(word) == true){wordWritten = true;}
+            break;
+         case 6:
+            if(putSE(word) == true){wordWritten = true;}
+            break;
+         case 7:
+            if(putNW(word) == true){wordWritten = true;}
+            break;
+         case 8:
+            if(putSW(word) == true){wordWritten = true;}
+            break;
+         default:
+            break;
       }
    }
    return true;
@@ -81,35 +110,84 @@ void WordSearch::writeToFile(const string& filename) const{
    outputFile.close(); 
 }
 
+//[-1][0]
 bool WordSearch::putNorth(vector<char> word){
+   
+   for(int i = 0; i < word.size(); i++){
+      if(!setChar(i,i,word[i])){
+         return false;
+      }
+   }
    return true;
 }
 
+//[+1][0]
 bool WordSearch::putSouth(vector<char> word){
+   for(int i = 0; i < word.size(); i++){
+      if(!setChar(i,i,word[i])){
+         return false;
+      }
+   }
    return true;
 }
 
+//[0][+1]
 bool WordSearch::putEast(vector<char> word){
+   for(int i = 0; i < word.size(); i++){
+      if(!setChar(i,i,word[i])){
+         return false;
+      }
+   }
    return true;
 }
 
+//[0][-1]
 bool WordSearch::putWest(vector<char> word){
+   for(int i = 0; i < word.size(); i++){
+      if(!setChar(i,i,word[i])){
+         return false;
+      }
+   }
    return true;
 }
 
+//[-1][+1]
 bool WordSearch::putNE(vector<char> word){
+   for(int i = 0; i < word.size(); i++){
+      if(!setChar(i,i,word[i])){
+         return false;
+      }
+   }
    return true;
 }
 
+//[+1][+1]
 bool WordSearch::putSE(vector<char> word){
+   for(int i = 0; i < word.size(); i++){
+      if(!setChar(i,i,word[i])){
+         return false;
+      }
+   }
    return true;
 }
 
+//[-1][-1]
 bool WordSearch::putNW(vector<char> word){
+   for(int i = 0; i < word.size(); i++){
+      if(!setChar(i,i,word[i])){
+         return false;
+      }
+   }
    return true;
 }
 
+//[+1][-1]
 bool WordSearch::putSW(vector<char> word){
+   for(int i = 0; i < word.size(); i++){
+      if(!setChar(i,i,word[i])){
+         return false;
+      }
+   }
    return true;
 }
 
