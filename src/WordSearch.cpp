@@ -81,5 +81,37 @@ void WordSearch::writeToFile(const string& filename) const{
    outputFile.close(); 
 }
 
+bool WordSearch::putNorth(vector<char> word){
+   return true;
+}
+
+bool WordSearch::putSouth(vector<char> word){
+   return true;
+}
+
+bool WordSearch::putEast(vector<char> word){
+   return true;
+}
+
+bool WordSearch::putWest(vector<char> word){
+   return true;
+}
+
+bool WordSearch::putNE(vector<char> word){
+   return true;
+}
+
+bool WordSearch::putSE(vector<char> word){
+   return true;
+}
+
+bool WordSearch::putNW(vector<char> word){
+   return true;
+}
+
+bool WordSearch::putSW(vector<char> word){
+   return true;
+}
+
 size_t WordSearch::getYsize() const { return ysize; }
 size_t WordSearch::getXsize() const { return xsize; }

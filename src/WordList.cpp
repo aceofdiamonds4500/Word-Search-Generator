@@ -31,7 +31,7 @@ bool WordList::removeWord(Word removeWord){
       }
    }
    return false;
-} 
+}
 
 string WordList::toString() const{
    string list = "Words:";

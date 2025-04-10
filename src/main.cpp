@@ -50,7 +50,7 @@ void customWordSearch()
    vector<Word> initVec = {Word(newWord)};
    WordList wrdList(initVec);
 
-   cout << "Select an option:\n1) Add a word\n2) View the list of words\n3)View the last word you wrote\n0) Finish adding words" << endl;
+   cout << "Select an option:\n1) Add a word\n2) View the list of words\n3) View the last word you wrote\n4) Remove a word from the list\n0) Finish adding words" << endl;
 
    while(full != true){
       cout << "> ";
@@ -67,6 +67,12 @@ void customWordSearch()
       }
       if(input == 3){
          cout << newWord.toString() << endl;
+      }
+      if(input == 4){
+         cout << "Word to remove: ";
+         cin >> userWord;
+         if(wrdList.removeWord(userWord) == false){cout << "Word not found!" << endl;}
+         else{cout << "Word " + userWord + " removed from list." << endl;}     
       }
       if(input == 0){
          full = true;

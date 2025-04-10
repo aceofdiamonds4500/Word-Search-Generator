@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <tuple>
-#include <vector> 
+#include <vector>
 using namespace std;
 
 class Word{
