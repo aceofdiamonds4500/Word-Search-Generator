@@ -38,33 +38,38 @@ char WordSearch::getChar(size_t col, size_t row) const{
 bool WordSearch::addWord(vector<char> word){
    bool wordWritten = false;
    int randDir = 0;
+   int randPosX = 0;
+   int randPosY = 0;
+
    srand(time(0));
    while(wordWritten == false){
       randDir = (rand() % 8) + 1;
+      randPosX = rand() % xsize;
+      randPosY = rand() % xsize;
       switch(randDir){
          case 1:
-            if(putNorth(word) == true){wordWritten = true;}
+            if(putNorth(word, randPosX, randPosY) == true){wordWritten = true;}
             break;
          case 2:
-            if(putSouth(word) == true){wordWritten = true;}
+            if(putSouth(word, randPosX, randPosY) == true){wordWritten = true;}
             break;
          case 3:
-            if(putEast(word) == true){wordWritten = true;}
+            if(putEast(word, randPosX, randPosY) == true){wordWritten = true;}
             break;
          case 4:
-            if(putWest(word) == true){wordWritten = true;}
+            if(putWest(word, randPosX, randPosY) == true){wordWritten = true;}
             break;
          case 5:
-            if(putNE(word) == true){wordWritten = true;}
+            if(putNE(word, randPosX, randPosY) == true){wordWritten = true;}
             break;
          case 6:
-            if(putSE(word) == true){wordWritten = true;}
+            if(putSE(word, randPosX, randPosY) == true){wordWritten = true;}
             break;
          case 7:
-            if(putNW(word) == true){wordWritten = true;}
+            if(putNW(word, randPosX, randPosY) == true){wordWritten = true;}
             break;
          case 8:
-            if(putSW(word) == true){wordWritten = true;}
+            if(putSW(word, randPosX, randPosY) == true){wordWritten = true;}
             break;
          default:
             break;
@@ -111,7 +116,7 @@ void WordSearch::writeToFile(const string& filename) const{
 }
 
 //[-1][0]
-bool WordSearch::putNorth(vector<char> word){
+bool WordSearch::putNorth(vector<char> word, int posX, int posY){
    
    for(int i = 0; i < word.size(); i++){
       if(!setChar(i,i,word[i])){
@@ -122,7 +127,7 @@ bool WordSearch::putNorth(vector<char> word){
 }
 
 //[+1][0]
-bool WordSearch::putSouth(vector<char> word){
+bool WordSearch::putSouth(vector<char> word, int posX, int posY){
    for(int i = 0; i < word.size(); i++){
       if(!setChar(i,i,word[i])){
          return false;
@@ -132,7 +137,7 @@ bool WordSearch::putSouth(vector<char> word){
 }
 
 //[0][+1]
-bool WordSearch::putEast(vector<char> word){
+bool WordSearch::putEast(vector<char> word, int posX, int posY){
    for(int i = 0; i < word.size(); i++){
       if(!setChar(i,i,word[i])){
          return false;
@@ -142,7 +147,7 @@ bool WordSearch::putEast(vector<char> word){
 }
 
 //[0][-1]
-bool WordSearch::putWest(vector<char> word){
+bool WordSearch::putWest(vector<char> word, int posX, int posY){
    for(int i = 0; i < word.size(); i++){
       if(!setChar(i,i,word[i])){
          return false;
@@ -152,7 +157,7 @@ bool WordSearch::putWest(vector<char> word){
 }
 
 //[-1][+1]
-bool WordSearch::putNE(vector<char> word){
+bool WordSearch::putNE(vector<char> word, int posX, int posY){
    for(int i = 0; i < word.size(); i++){
       if(!setChar(i,i,word[i])){
          return false;
@@ -162,7 +167,7 @@ bool WordSearch::putNE(vector<char> word){
 }
 
 //[+1][+1]
-bool WordSearch::putSE(vector<char> word){
+bool WordSearch::putSE(vector<char> word, int posX, int posY){
    for(int i = 0; i < word.size(); i++){
       if(!setChar(i,i,word[i])){
          return false;
@@ -172,7 +177,7 @@ bool WordSearch::putSE(vector<char> word){
 }
 
 //[-1][-1]
-bool WordSearch::putNW(vector<char> word){
+bool WordSearch::putNW(vector<char> word, int posX, int posY){
    for(int i = 0; i < word.size(); i++){
       if(!setChar(i,i,word[i])){
          return false;
@@ -182,7 +187,7 @@ bool WordSearch::putNW(vector<char> word){
 }
 
 //[+1][-1]
-bool WordSearch::putSW(vector<char> word){
+bool WordSearch::putSW(vector<char> word, int posX, int posY){
    for(int i = 0; i < word.size(); i++){
       if(!setChar(i,i,word[i])){
          return false;
