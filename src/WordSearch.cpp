@@ -129,9 +129,10 @@ void WordSearch::writeToFile(const string& filename) const{
 //[-1][0]
 bool WordSearch::putNorth(vector<char> word, int posX, int posY){
    int wordIdx = 0;
-   if(posY - word.size() < 0){return false;} 
+   int check = posY - word.size();
+   if(check < 0){return false;} 
    for(int i = posY; wordIdx < word.size(); i--){
-      if(!setChar(i,posX,word[wordIdx])){cout << "north too long" << endl; 
+      if(!setChar(i,posX,word[wordIdx])){cout << check << " north too long" << endl; 
          return false;
       }
       wordIdx++;
@@ -171,7 +172,8 @@ bool WordSearch::putEast(vector<char> word, int posX, int posY){
 //[0][-1]
 bool WordSearch::putWest(vector<char> word, int posX, int posY){
    int wordIdx = 0;
-   if(posX - word.size() < 0){return false;}
+   int check = posX - word.size();
+   if(check < 0){return false;}
    for(int i = posX; wordIdx < word.size(); i--){
       if(!setChar(posY,i,word[wordIdx])){cout << "west too long" << endl; 
          return false;
@@ -214,7 +216,9 @@ bool WordSearch::putSE(vector<char> word, int posX, int posY){
 //[-1][-1]
 bool WordSearch::putNW(vector<char> word, int posX, int posY){
    int wordIdx = 0;
-   if(posX - word.size() < 0 || posY - word.size() < 0){return false;} 
+   int checkN = posY - word.size();
+   int checkW = posX - word.size();
+   if(checkN < 0 || checkW < 0){return false;} 
    for(int i = posX; wordIdx < word.size(); i--){
       if(!setChar(i,i,word[wordIdx])){cout << "nw too long" << endl; 
          return false;
