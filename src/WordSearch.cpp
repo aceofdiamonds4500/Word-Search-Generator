@@ -23,6 +23,7 @@ bool WordSearch::setChar(size_t col, size_t row, char input){
    {return false;}
 
    wordsearch[col][row] = input;
+   cout << input;
    return true;
 }
 
@@ -40,36 +41,46 @@ bool WordSearch::addWord(vector<char> word){
    int randDir = 0;
    int randPosX = 0;
    int randPosY = 0;
+   int tries = 8;
 
    srand(time(0));
    while(wordWritten == false){
+      if(tries == 0){return false;}
       randDir = (rand() % 8) + 1;
       randPosX = rand() % xsize;
-      randPosY = rand() % xsize;
+      randPosY = rand() % ysize;
       switch(randDir){
          case 1:
             if(putNorth(word, randPosX, randPosY) == true){wordWritten = true;}
+            else{tries--;}
             break;
          case 2:
             if(putSouth(word, randPosX, randPosY) == true){wordWritten = true;}
+            else{tries--;}
             break;
          case 3:
             if(putEast(word, randPosX, randPosY) == true){wordWritten = true;}
+            else{tries--;}
             break;
          case 4:
             if(putWest(word, randPosX, randPosY) == true){wordWritten = true;}
+            else{tries--;}
             break;
          case 5:
             if(putNE(word, randPosX, randPosY) == true){wordWritten = true;}
+            else{tries--;}
             break;
          case 6:
             if(putSE(word, randPosX, randPosY) == true){wordWritten = true;}
+            else{tries--;}
             break;
          case 7:
             if(putNW(word, randPosX, randPosY) == true){wordWritten = true;}
+            else{tries--;}
             break;
          case 8:
             if(putSW(word, randPosX, randPosY) == true){wordWritten = true;}
+            else{tries--;}
             break;
          default:
             break;
@@ -117,82 +128,115 @@ void WordSearch::writeToFile(const string& filename) const{
 
 //[-1][0]
 bool WordSearch::putNorth(vector<char> word, int posX, int posY){
-   
-   for(int i = 0; i < word.size(); i++){
-      if(!setChar(i,i,word[i])){
+   int wordIdx = 0;
+   if(posY - word.size() < 0){return false;} 
+   for(int i = posY; wordIdx < word.size(); i--){
+      if(!setChar(i,posX,word[wordIdx])){cout << "north too long" << endl; 
          return false;
       }
+      wordIdx++;
    }
+   cout << "north" << endl;
    return true;
 }
 
-//[+1][0]
+//[+1][0]]
 bool WordSearch::putSouth(vector<char> word, int posX, int posY){
-   for(int i = 0; i < word.size(); i++){
-      if(!setChar(i,i,word[i])){
+   int wordIdx = 0;
+   if(posY + word.size() > ysize){return false;}
+   for(int i = posY; wordIdx < word.size(); i++){
+      if(!setChar(i,posX,word[wordIdx])){cout << "south too long" << endl; 
          return false;
       }
+      wordIdx++;
    }
+   cout << "south" << endl;
    return true;
 }
 
 //[0][+1]
 bool WordSearch::putEast(vector<char> word, int posX, int posY){
-   for(int i = 0; i < word.size(); i++){
-      if(!setChar(i,i,word[i])){
+   int wordIdx = 0;
+   if(posX + word.size() > xsize){return false;}
+   for(int i = posX; wordIdx < word.size(); i++){
+      if(!setChar(posY,i,word[wordIdx])){cout << "east too long" << endl; 
          return false;
       }
+      wordIdx++;
    }
+   cout << "east" << endl;
    return true;
 }
 
 //[0][-1]
 bool WordSearch::putWest(vector<char> word, int posX, int posY){
-   for(int i = 0; i < word.size(); i++){
-      if(!setChar(i,i,word[i])){
+   int wordIdx = 0;
+   if(posX - word.size() < 0){return false;}
+   for(int i = posX; wordIdx < word.size(); i--){
+      if(!setChar(posY,i,word[wordIdx])){cout << "west too long" << endl; 
          return false;
       }
+      wordIdx++;
    }
+   cout << "west" << endl;
    return true;
 }
 
 //[-1][+1]
 bool WordSearch::putNE(vector<char> word, int posX, int posY){
-   for(int i = 0; i < word.size(); i++){
-      if(!setChar(i,i,word[i])){
+   int wordIdx = 0;
+   if(posY - word.size() < 0 || posX + word.size() > xsize){return false;} 
+   for(int i = posX; wordIdx < word.size(); i++){
+      posY--;
+      if(!setChar(posY,i,word[wordIdx])){cout << "ne too long" << endl; 
          return false;
       }
+      wordIdx++;
    }
+   cout << "NE" << endl;
    return true;
 }
 
 //[+1][+1]
 bool WordSearch::putSE(vector<char> word, int posX, int posY){
-   for(int i = 0; i < word.size(); i++){
-      if(!setChar(i,i,word[i])){
+   int wordIdx = 0;
+   if(posY + word.size() > ysize || posX + word.size() > xsize){return false;}
+   for(int i = posX; wordIdx < word.size(); i++){
+      if(!setChar(i,i,word[wordIdx])){cout << "se too long" << endl; 
          return false;
       }
+      wordIdx++;
    }
+   cout << "SE" << endl;
    return true;
 }
 
 //[-1][-1]
 bool WordSearch::putNW(vector<char> word, int posX, int posY){
-   for(int i = 0; i < word.size(); i++){
-      if(!setChar(i,i,word[i])){
+   int wordIdx = 0;
+   if(posX - word.size() < 0 || posY - word.size() < 0){return false;} 
+   for(int i = posX; wordIdx < word.size(); i--){
+      if(!setChar(i,i,word[wordIdx])){cout << "nw too long" << endl; 
          return false;
       }
+      wordIdx++;
    }
+   cout << "NW" << endl;
    return true;
 }
 
 //[+1][-1]
 bool WordSearch::putSW(vector<char> word, int posX, int posY){
-   for(int i = 0; i < word.size(); i++){
-      if(!setChar(i,i,word[i])){
+   int wordIdx = 0;
+   if(posY + word.size() > ysize || posX - word.size() < 0){return false;}
+   for(int i = posY; wordIdx < word.size(); i++){
+      posX--;
+      if(!setChar(i,posX,word[wordIdx])){cout << "sw too long" << endl; 
          return false;
       }
+      wordIdx++;
    }
+   cout << "SW" << endl;
    return true;
 }
 

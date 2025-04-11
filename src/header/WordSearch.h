@@ -20,14 +20,14 @@ public:
    string toString() const;
    void writeToFile(const string& filename) const;
       
-   bool putNorth(vector<char> word);
-   bool putSouth(vector<char> word);
-   bool putEast(vector<char> word);
-   bool putWest(vector<char> word);
-   bool putNE(vector<char> word);
-   bool putSE(vector<char> word);
-   bool putNW(vector<char> word);
-   bool putSW(vector<char> word);
+   bool putNorth(vector<char> word, int posX, int posY);
+   bool putSouth(vector<char> word, int posX, int posY);
+   bool putEast(vector<char> word, int posX, int posY);
+   bool putWest(vector<char> word, int posX, int posY);
+   bool putNE(vector<char> word, int posX, int posY);
+   bool putSE(vector<char> word, int posX, int posY);
+   bool putNW(vector<char> word, int posX, int posY);
+   bool putSW(vector<char> word, int posX, int posY);
 
    size_t getYsize() const;
    size_t getXsize() const; 
