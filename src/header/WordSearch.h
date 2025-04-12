@@ -8,12 +8,14 @@ using namespace std;
 class WordSearch{
 private:
    vector<vector<char>> wordsearch;
+   vector<vector<bool>> writtenOver;
    size_t xsize;
    size_t ysize;
 
 public:
    WordSearch(size_t ysize, size_t xsize);
-   
+
+   bool checkSpace(size_t ysize, size_t xsize, char input);   
    bool setChar(size_t ysize, size_t xsize, char input);
    char getChar(size_t ysize, size_t xsize) const;
    bool addWord(vector<char> word);
