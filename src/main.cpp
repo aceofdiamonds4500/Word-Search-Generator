@@ -23,36 +23,34 @@ void customWordSearch()
    **/
 
    int dimensions = 0;
-   cout << "Insert the x of the word search (min is 12, max is 50)\nEX: 12 = 12x12 grid\n> ";
+   cout << "Insert the rows (left right) of the word search (min is 12, max is 50)\nEX: 12 = 12x12 grid\n> ";
   
    while(dimensions < 12 || dimensions > 50){
-      if(!(cin >> dimensions)) {
-   
-         cin.clear();
-   
-         cin.ignore(numeric_limits<streamsize>::max(), '\n');
-         //cout << "Invalid input. Try again (Hint: only put 12-50)\n> ";
-      }
-      cout << "Invalid input. Try again (Hint: only put 12-50)\n> ";
-      //cin >> dimensions;
-   }
-   int xsize = dimensions;
-
-   cout << "Insert the y of the word search (min is 12, max is 50)\nEX: 12 = 12x12 grid\n> ";
-   cin >> dimensions;
-      
-   while(dimensions < 12 || dimensions > 50){
-      if(!(cin >> dimensions)) {
+      if(!(cin >> dimensions) || dimensions < 12 || dimensions > 50) {
    
          cin.clear();
    
          cin.ignore(numeric_limits<streamsize>::max(), '\n');
          cout << "Invalid input. Try again (Hint: only put 12-50)\n> ";
       }
-      //cout << "Invalid input. Try again (Hint: only put 12-50)\n> ";
-      //cin >> dimensions;
+   }
+   int xsize = dimensions;
+   cout << xsize << " written for rows.\n" << endl;
+
+   dimensions = 0;
+   cout << "Insert the columns (up down) of the word search (min is 12, max is 50)\nEX: 12 = 12x12 grid\n> ";
+    
+   while(dimensions < 12 || dimensions > 50){
+      if(!(cin >> dimensions) || dimensions < 12 || dimensions > 50) {
+   
+         cin.clear();
+   
+         cin.ignore(numeric_limits<streamsize>::max(), '\n');
+         cout << "Invalid input. Try again (Hint: only put 12-50)\n> ";
+      }
    }
    int ysize = dimensions;
+   cout << ysize << " written for columns.\n" << endl;
 
    WordSearch WS(ysize,xsize);
 

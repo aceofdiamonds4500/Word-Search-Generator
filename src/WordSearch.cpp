@@ -43,7 +43,7 @@ bool WordSearch::setChar(size_t col, size_t row, char input){
    
    wordsearch[col][row] = input;
    writtenOver[col][row] = true;
-   cout << input;
+   //cout << input;
    return true;
 }
 
@@ -189,7 +189,7 @@ bool WordSearch::putNorth(vector<char> word, int posX, int posY){
       }
       wordIdx++;
    }
-   cout << " north" << endl;
+   //cout << " north" << endl;
    return true;
 }
 
@@ -212,7 +212,7 @@ bool WordSearch::putSouth(vector<char> word, int posX, int posY){
       }
       wordIdx++;
    }
-   cout << " south" << endl;
+   //cout << " south" << endl;
    return true;
 }
 
@@ -235,7 +235,7 @@ bool WordSearch::putEast(vector<char> word, int posX, int posY){
       }
       wordIdx++;
    }
-   cout << " east" << endl;
+   //cout << " east" << endl;
    return true;
 }
 
@@ -258,7 +258,7 @@ bool WordSearch::putWest(vector<char> word, int posX, int posY){
       }
       wordIdx++;
    }
-   cout << " west" << endl;
+   //cout << " west" << endl;
    return true;
 }
 
@@ -286,7 +286,7 @@ bool WordSearch::putNE(vector<char> word, int posX, int posY){
       }
       wordIdx++;
    }
-   cout << " NE" << endl;
+   //cout << " NE" << endl;
    return true;
 }
 
@@ -310,7 +310,7 @@ bool WordSearch::putSE(vector<char> word, int posX, int posY){
       }
       wordIdx++;
    }
-   cout << " SE" << endl;
+   //cout << " SE" << endl;
    return true;
 }
 
@@ -334,7 +334,7 @@ bool WordSearch::putNW(vector<char> word, int posX, int posY){
       }
       wordIdx++;
    }
-   cout << " NW" << endl;
+   //cout << " NW" << endl;
    return true;
 }
 
@@ -362,7 +362,7 @@ bool WordSearch::putSW(vector<char> word, int posX, int posY){
       }
       wordIdx++;
    }
-   cout << " SW" << endl;
+   //cout << " SW" << endl;
    return true;
 }
 

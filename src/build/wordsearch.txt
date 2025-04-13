@@ -1,15 +1,24 @@
 Note: Source Code Pro and other fonts with a constant width is optimal for the best looking word search.
 Copy and paste this to any Word file/Canva project to make your word search printable!
-B F W M L G L N B G O L 
-B P S L J S L Q M U I C 
-W A B Y O Y B R D Z E Q 
-F R E G Z U T A M M M V 
-E Z L Q T V S S X U S L 
-U V D A U J Q B C W K B 
-R D C D P Q Y U R L M N 
-I F H G B Z T V X W V T 
-H O V J K F L D K P I A 
-F I W Y T I L E P S K S 
-U D Q T C N M L B J V O 
-Q I R B Z A D G K Z E E 
-Words:   
+Q B S E T A R C O S S T E I N 
+A B W H K U Y A N S C O M B E 
+A Y T E F U L L E R H G G S F 
+B D G G Y T V Y L C S N E Q X 
+B Q Y E L G D I M P J T W H B 
+D U E L T S H P I S R R Y F H 
+E Y C B F J A N E A C P A Y H 
+C A O J S X O N C V A H S Y M 
+H W N V F Z G S I T V Q T Y X 
+C N F P A P E B I U X H E L R 
+O O U T E D V A K K Q H L E A 
+D C C S P L A T O X W A L G M 
+R E I W Z Y K A N T G K I J O 
+U E U Y Z O T D N E R A S I N 
+M W S W S S V J P G K X S S G 
+Words:   ANSCOMBE   AQUINAS   
+ARENDT   ASTELL   CONFUCIUS   
+CONWAY   DESCARTES   FULLER   
+HEGEL   HYPATIA   KANT   
+MARX   MIDGLEY   MURDOCH   
+PLATO   SOCRATES   SPINOZA   
+STEIN   
