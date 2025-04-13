@@ -420,6 +420,8 @@ CMakeFiles/WordSearch.dir/WordList.cpp.o
 
 CMakeFiles/WordSearch.dir/WordSearch.cpp.o
  /home/nick/plusplus/WordSearch/src/WordSearch.cpp
+ /home/nick/plusplus/WordSearch/src/header/Word.h
+ /home/nick/plusplus/WordSearch/src/header/WordList.h
  /home/nick/plusplus/WordSearch/src/header/WordSearch.h
  /usr/include/alloca.h
  /usr/include/asm-generic/bitsperlong.h
@@ -790,6 +792,7 @@ CMakeFiles/WordSearch.dir/main.cpp.o
  /usr/include/c++/14.2.1/iosfwd
  /usr/include/c++/14.2.1/iostream
  /usr/include/c++/14.2.1/istream
+ /usr/include/c++/14.2.1/limits
  /usr/include/c++/14.2.1/new
  /usr/include/c++/14.2.1/ostream
  /usr/include/c++/14.2.1/pstl/pstl_config.h

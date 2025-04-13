@@ -35,8 +35,12 @@ bool WordList::removeWord(Word removeWord){
 
 string WordList::toString() const{
    string list = "Words:";
+   int tab = 1;
    for(const auto& word : wordList){
-      list += word.toString() + " ";
+      list += word.toString() + "   ";
+      if(tab % 3 == 0){list += "\n";}
+      tab++;
    }
+   
    return list;
 }

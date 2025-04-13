@@ -149,8 +149,11 @@ CMakeFiles/WordSearch.dir/WordSearch.cpp.o: \
  /usr/include/c++/14.2.1/bits/stl_uninitialized.h \
  /usr/include/c++/14.2.1/bits/stl_vector.h \
  /usr/include/c++/14.2.1/bits/stl_bvector.h \
- /usr/include/c++/14.2.1/bits/vector.tcc /usr/include/c++/14.2.1/fstream \
- /usr/include/c++/14.2.1/bits/codecvt.h \
+ /usr/include/c++/14.2.1/bits/vector.tcc \
+ /home/nick/plusplus/WordSearch/src/header/WordList.h \
+ /home/nick/plusplus/WordSearch/src/header/Word.h \
+ /home/nick/plusplus/WordSearch/src/header/WordList.h \
+ /usr/include/c++/14.2.1/fstream /usr/include/c++/14.2.1/bits/codecvt.h \
  /usr/include/c++/14.2.1/x86_64-pc-linux-gnu/bits/basic_file.h \
  /usr/include/c++/14.2.1/x86_64-pc-linux-gnu/bits/c++io.h \
  /usr/include/c++/14.2.1/bits/fstream.tcc

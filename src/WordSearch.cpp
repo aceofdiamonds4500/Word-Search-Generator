@@ -1,5 +1,6 @@
 
 #include "header/WordSearch.h"
+#include "header/WordList.h"
 #include <fstream>
 
 using namespace std;
@@ -68,7 +69,8 @@ bool WordSearch::addWord(vector<char> word){
       randDir = (rand() % 12) + 1;
       randPosX = rand() % xsize;
       randPosY = rand() % ysize;
-      cout << randPosX << " posX " << randPosY << " posY" << endl;
+      //debug
+      //cout << randPosX << " posX " << randPosY << " posY" << endl;
       switch(randDir){
          case 1:
             if(putNorth(word, randPosX, randPosY) == true){wordWritten = true;}
@@ -146,19 +148,25 @@ string WordSearch::toString() const{
    return output;
 }
 
-void WordSearch::writeToFile(const string& filename) const{
+void WordSearch::writeToFile(WordList wordList, const string& filename) const{
    ofstream outputFile(filename);
    if(!outputFile){
       cerr << "File did not open properly." << endl;
       return;
    }
+   
+   //user disclaimer
+   outputFile << "Note: Source Code Pro and other fonts with a constant width is optimal for the best looking word search.\nCopy and paste this to any Word file/Canva project to make your word search printable!" << endl;
+
    for(const auto &xsize : wordsearch){
       for(char ch : xsize){
 	 outputFile << ch << " ";
       }
       outputFile << "\n";
    }
-   cout << "Word search written to file \"wordsearch.txt\"!" << endl;
+   
+   outputFile << wordList.toString(); 
+   cout << "Word search written to file \"src\\build\\wordsearch.txt\"!" << endl;
    outputFile.close(); 
 }
 
@@ -174,7 +182,6 @@ bool WordSearch::putNorth(vector<char> word, int posX, int posY){
       wordIdx++;
    }
  
-   cout << "space check passed" << endl;
    wordIdx = 0;
    for(int i = posY; wordIdx < word.size(); i--){
       if(!setChar(i,posX,word[wordIdx])){ 
@@ -198,7 +205,6 @@ bool WordSearch::putSouth(vector<char> word, int posX, int posY){
       wordIdx++;
    }
 
-   cout << "space check passed" << endl;
    wordIdx = 0;
    for(int i = posY; wordIdx < word.size(); i++){
       if(!setChar(i,posX,word[wordIdx])){ 
@@ -222,7 +228,6 @@ bool WordSearch::putEast(vector<char> word, int posX, int posY){
       wordIdx++;
    }
 
-   cout << "space check passed" << endl;
    wordIdx = 0;
    for(int i = posX; wordIdx < word.size(); i++){
       if(!setChar(posY,i,word[wordIdx])){ 
@@ -246,7 +251,6 @@ bool WordSearch::putWest(vector<char> word, int posX, int posY){
       wordIdx++;
    }
 
-   cout << "space check passed" << endl;
    wordIdx = 0;
    for(int i = posX; wordIdx < word.size(); i--){
       if(!setChar(posY,i,word[wordIdx])){ 
@@ -274,7 +278,6 @@ bool WordSearch::putNE(vector<char> word, int posX, int posY){
       wordIdx++;
    }
 
-   cout << "space check passed" << endl;
    wordIdx = 0;
    for(int i = posX; wordIdx < word.size(); i++){
       posY--;
@@ -300,7 +303,6 @@ bool WordSearch::putSE(vector<char> word, int posX, int posY){
       wordIdx++;
    }
 
-   cout << "space check passed" << endl;
    wordIdx = 0;
    for(int i = posX; wordIdx < word.size(); i++){
       if(!setChar(i,i,word[wordIdx])){ 
@@ -325,7 +327,6 @@ bool WordSearch::putNW(vector<char> word, int posX, int posY){
       wordIdx++;
    }
 
-   cout << "space check passed" << endl;
    wordIdx = 0;
    for(int i = posX; wordIdx < word.size(); i--){
       if(!setChar(i,i,word[wordIdx])){ 
@@ -353,7 +354,6 @@ bool WordSearch::putSW(vector<char> word, int posX, int posY){
       wordIdx++;
    }
   
-   cout << "space check passed" << endl;
    wordIdx = 0;
    for(int i = posY; wordIdx < word.size(); i++){
       posX--;

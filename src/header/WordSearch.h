@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include "WordList.h"
 using namespace std;
 
 class WordSearch{
@@ -20,7 +21,7 @@ public:
    char getChar(size_t ysize, size_t xsize) const;
    bool addWord(vector<char> word);
    string toString() const;
-   void writeToFile(const string& filename) const;
+   void writeToFile(WordList wordList, const string& filename) const;
       
    bool putNorth(vector<char> word, int posX, int posY);
    bool putSouth(vector<char> word, int posX, int posY);

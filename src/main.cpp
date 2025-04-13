@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <iostream>
+#include <limits>
 #include "header/WordSearch.h"
 #include "header/Word.h"
 #include "header/WordList.h"
@@ -23,11 +24,17 @@ void customWordSearch()
 
    int dimensions = 0;
    cout << "Insert the x of the word search (min is 12, max is 50)\nEX: 12 = 12x12 grid\n> ";
-   cin >> dimensions;
-      
+  
    while(dimensions < 12 || dimensions > 50){
+      if(!(cin >> dimensions)) {
+   
+         cin.clear();
+   
+         cin.ignore(numeric_limits<streamsize>::max(), '\n');
+         //cout << "Invalid input. Try again (Hint: only put 12-50)\n> ";
+      }
       cout << "Invalid input. Try again (Hint: only put 12-50)\n> ";
-      cin >> dimensions;
+      //cin >> dimensions;
    }
    int xsize = dimensions;
 
@@ -35,8 +42,15 @@ void customWordSearch()
    cin >> dimensions;
       
    while(dimensions < 12 || dimensions > 50){
-      cout << "Invalid input. Try again (Hint: only put 12-50)\n> ";
-      cin >> dimensions;
+      if(!(cin >> dimensions)) {
+   
+         cin.clear();
+   
+         cin.ignore(numeric_limits<streamsize>::max(), '\n');
+         cout << "Invalid input. Try again (Hint: only put 12-50)\n> ";
+      }
+      //cout << "Invalid input. Try again (Hint: only put 12-50)\n> ";
+      //cin >> dimensions;
    }
    int ysize = dimensions;
 
@@ -50,62 +64,81 @@ void customWordSearch()
    vector<Word> initVec = {Word(newWord)};
    WordList wrdList(initVec);
 
-   cout << "Select an option:\n1) Add a word\n2) View the list of words\n3) View the last word you wrote\n4) Remove a word from the list\n0) Finish adding words" << endl;
-
    while(full != true){
+      cout << "Select an option:\n1) Add a word\n2) View the list of words\n3) View the last word you wrote\n4) Remove a word from the list\n0) Finish adding words" << endl;
       cout << "> ";
-      cin >> input;
-      if(input == 1){
-         cout << "Word to add: ";
-         cin >> userWord;
-         newWord.setWord(userWord);
-         if(WS.addWord(newWord.getWord()) == false){cout << "Word is too long!" << endl;}
-         else{wrdList.addWord(newWord);}
+      if(!(cin >> input)) {
+   
+         cin.clear();
+   
+         cin.ignore(numeric_limits<streamsize>::max(), '\n');
+         cout << "That's not valid.. Please enter a number." << endl;
       }
-      if(input == 2){
-         cout << wrdList.toString() << endl;
-      }
-      if(input == 3){
-         cout << newWord.toString() << endl;
-      }
-      if(input == 4){
-         cout << "Word to remove: ";
-         cin >> userWord;
-         if(wrdList.removeWord(userWord) == false){cout << "Word not found!" << endl;}
-         else{cout << "Word " + userWord + " removed from list." << endl;}     
-      }
-      if(input == 0){
-         full = true;
-         break;
-      }
-      if(input < 0 || input > 3){
-         cout << "Not valid input." << endl;
+      else{
+         switch(input){
+            case 1:
+               cout << "Word to add: ";
+               cin >> userWord;
+               newWord.setWord(userWord);
+               if(WS.addWord(newWord.getWord()) == false){cout << "Word not placed!\n(NOTE: try giving the word a few more times - if it doesn't place after 5 tries, it's too big or you've run out of space.)" << endl;}
+               else{wrdList.addWord(newWord);}
+               break;
+            case 2:
+               cout << wrdList.toString() << endl;
+               break;
+            case 3:
+               cout << newWord.toString() << endl;
+               break;
+            case 4:
+               cout << "Word to remove: ";
+               cin >> userWord;
+               if(wrdList.removeWord(userWord) == false){cout << "Word not found!" << endl;}
+               else{cout << "Word " + userWord + " removed from list." << endl;}   
+               break;
+            case 0:
+               full = true;
+               break;
+            default:
+               cout << "Not valid input." << endl;
+               break;
+         }
       }
    }
    //cout << WS.getChar(0,0);
    cout << WS.toString() << endl;
-   WS.writeToFile(filename); 
+   cout << wrdList.toString() << endl;
+   WS.writeToFile(wrdList, filename); 
  
 }
 
 int main()
 {
    int input = 1;
+   bool quit = false;
 
    cout << "Word Search Creator" << endl;
-   while(input != 0)
+   while(quit != true)
    {
       cout << "1: Generate a custom word search\n0: quit\n> ";
-      cin >> input;
+   
+      if(!(cin >> input)) {
+   
+         cin.clear();
+   
+         cin.ignore(numeric_limits<streamsize>::max(), '\n');
+         cout << "That's not valid.. Please enter a number." << endl;
+      }
+      else{
 
       switch(input){
          case 1:
             customWordSearch();
          case 0:
+            quit = true;
             break;
-         default:
-            cout << "That's not valid.." << endl;
+         default:            
             break;
+         }
       }
    }
  
