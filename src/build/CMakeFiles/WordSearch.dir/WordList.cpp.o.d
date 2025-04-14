@@ -149,5 +149,6 @@ CMakeFiles/WordSearch.dir/WordList.cpp.o: \
  /usr/include/c++/14.2.1/bits/stl_bvector.h \
  /usr/include/c++/14.2.1/bits/vector.tcc \
  /home/nick/plusplus/WordSearch/src/header/WordList.h \
+ /home/nick/plusplus/WordSearch/src/header/DLLExport.h \
  /home/nick/plusplus/WordSearch/src/header/Word.h \
  /home/nick/plusplus/WordSearch/src/header/Word.h

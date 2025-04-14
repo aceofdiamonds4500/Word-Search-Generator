@@ -3,6 +3,7 @@
 
 CMakeFiles/WordSearch.dir/Word.cpp.o
  /home/nick/plusplus/WordSearch/src/Word.cpp
+ /home/nick/plusplus/WordSearch/src/header/DLLExport.h
  /home/nick/plusplus/WordSearch/src/header/Word.h
  /usr/include/alloca.h
  /usr/include/asm-generic/bitsperlong.h
